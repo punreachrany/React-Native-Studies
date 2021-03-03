@@ -1,25 +1,15 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, {useState} from 'react';
 
-import React from 'react';
 import WebView from 'react-native-webview';
 
 export default function App() {
-  const [text, setText] = useState('');
+  const [outputText, setOutputText] = useState('Open up App.js to start working on your app!');
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize:42}}>
-        {text.split}
-      </Text>
-      <WebView source={{uri:'facebook.com'}} />
+      <Text>{outputText}</Text>
+      <Button title="Change Text" onPress={() => setOutputText("The text has changed")}/>
     </View>
   );
 }
